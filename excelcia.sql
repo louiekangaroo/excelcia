@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2016 at 03:21 AM
+-- Generation Time: May 11, 2016 at 07:12 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `excelcia`
 --
-CREATE DATABASE IF NOT EXISTS `excelcia` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `excelcia`;
 
 DELIMITER $$
 --
@@ -105,7 +103,7 @@ CREATE TABLE `personalinfo` (
 --
 
 INSERT INTO `personalinfo` (`id`, `lname`, `mname`, `fname`, `address`, `contactno`, `emailadd`, `username`, `password`, `usertype`, `status`) VALUES
-(1, 'Llagas', 'Gatela', 'Louie', '075 San Juan Darangan Binangonan Rizal', '5511223', 'louie@gmail.com', 'louie', 'louie', 'student', 1),
+(1, 'Llagas', 'Gatela', 'Louie', '075 San Juan Darangan Binangonan Rizal', '5511223', 'louie@gmail.com', 'louie', 'louie', 'teacher', 1),
 (2, 'Manalastas', 'Angeles', 'Edd Cristian', 'Blooming', '2288221', 'ed.ca@gmail.com', 'edd', 'edd', 'student', 1),
 (3, 'Aviso', 'Petalvero', 'Jefferson', 'Villa Gloria Angono Rizal', '8782212', 'foxy@gmail.com', 'jeff', 'jeff', 'student', 1),
 (4, 'Dean', NULL, 'Alan', 'Taytay Rizal', '3223377', 'curamba.dean@gmail.com', 'alan', 'alan', 'admin', 1);
@@ -206,6 +204,28 @@ INSERT INTO `studyunits` (`id`, `reviewid`, `studyname`, `description`, `isparen
 (11, 2, 'Subunit 1 ', 'Legal Consideration', 0, 8),
 (12, 2, 'Subunit 2', 'Communication Criteria', 0, 8);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userlogs`
+--
+
+CREATE TABLE `userlogs` (
+  `id` int(11) NOT NULL,
+  `loguser` varchar(15) NOT NULL,
+  `logdate` datetime NOT NULL,
+  `logdesc` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `userlogs`
+--
+
+INSERT INTO `userlogs` (`id`, `loguser`, `logdate`, `logdesc`) VALUES
+(1, 'alan/Dean, Alan', '2016-05-11 13:06:41', 'Good Login'),
+(2, 'alan/Dean, Alan', '2016-05-11 13:06:47', 'Good Login'),
+(3, 'alan/Dean, Alan', '2016-05-11 13:10:45', 'Good Login');
+
 --
 -- Indexes for dumped tables
 --
@@ -241,6 +261,12 @@ ALTER TABLE `studyunits`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `userlogs`
+--
+ALTER TABLE `userlogs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -269,6 +295,11 @@ ALTER TABLE `reviewtopic`
 --
 ALTER TABLE `studyunits`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `userlogs`
+--
+ALTER TABLE `userlogs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
