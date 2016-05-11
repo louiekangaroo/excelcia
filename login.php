@@ -1,6 +1,21 @@
 <?php
 session_start();
 include_once("./udf/udf.php");
+
+/* session variables */
+    $_SESSION['address']    ='';
+    $_SESSION['contactno']  ='';
+    $_SESSION['emailadd']   ='';
+    $_SESSION['fname']      ='';
+    $_SESSION['id']         ='';
+    $_SESSION['lname']      ='';
+    $_SESSION['mname']      ='';
+    $_SESSION['password']   ='';
+    $_SESSION['status']     ='';
+    $_SESSION['username']   ='';
+    $_SESSION['usertype']   ='';
+/* end of session variables */
+
 $pw='';
 $id='';
 if(isset($_POST['user_login']) && isset($_POST['user_password']) ){
@@ -9,6 +24,7 @@ if(isset($_POST['user_login']) && isset($_POST['user_password']) ){
     if(ChkUserLogin($id, $pw)) {
         siteRedirectWithAlert("Welcome back " . $_SESSION['wholename'],"index.php");
     }else{
+        session_destroy();
         DisplayAlert("invalid login....");
     }
 } else {

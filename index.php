@@ -1,3 +1,12 @@
+<?PHP 
+session_start();
+include_once("./udf/udf.php");
+if(strlen(trim($_SESSION['usertype']))<1 ){
+    siteRedirectWithAlert("You Much Login first!","login.php");
+}
+$usertype = $_SESSION['usertype'];
+$fname  = $_SESSION['fname'];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,7 +75,7 @@
         </ul>
 
         <div class="app-bar-element place-right">
-            <span class="dropdown-toggle"><span class="mif-cog"></span> Hi, Edd!</span>
+            <span class="dropdown-toggle"><span class="mif-cog"></span> Hi, <?PHP echo $usertype . ' ' . $fname ?></span>
             <div class="app-bar-drop-container padding10 place-right no-margin-top block-shadow fg-dark" data-role="dropdown" data-no-close="true" style="width: 220px">
                 <h2 class="text-light">Quick settings</h2>
                 <ul class="unstyled-list fg-dark">
