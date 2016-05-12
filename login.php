@@ -80,6 +80,11 @@ if(isset($_POST['user_login']) && isset($_POST['user_password']) ){
                 "-webkit-transition": ".5s",
                 "transition": ".5s"
             });
+
+            $(".btnCancel").click(function() {
+                $("#user_login").val("");
+                $("#user_password").val("");
+            });
         });
     </script>
 </head>
@@ -105,7 +110,7 @@ if(isset($_POST['user_login']) && isset($_POST['user_password']) ){
             <br />
             <div class="form-actions">
                 <button type="submit" class="button primary">Login</button>
-                <button type="button" class="button link">Cancel</button>
+                <button type="button" class="btnCancel button link">Cancel</button>
             </div>
         </form>
     </div>

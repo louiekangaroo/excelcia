@@ -1906,53 +1906,53 @@
   color: #16499a !important;
 }
 .fg-lightBlue {
-  color: #4390df !important;
+  color: #0072c6 !important;
 }
 .bg-lightBlue {
-  background-color: #4390df !important;
+  background-color: #0072c6 !important;
 }
 .bd-lightBlue {
-  border-color: #4390df !important;
+  border-color: #0072c6 !important;
 }
 .ol-lightBlue {
-  outline-color: #4390df !important;
+  outline-color: #0072c6 !important;
 }
 .op-lightBlue {
   background-color: rgba(67, 144, 223, 0.7);
 }
 .ribbed-lightBlue {
-  background: #4390df linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent) !important;
+  background: #0072c6 linear-gradient(-45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent) !important;
   background-size: 40px 40px !important;
 }
 .before-bg-lightBlue:before {
-  background: #4390df !important;
+  background: #0072c6 !important;
 }
 .before-fg-lightBlue:before {
-  color: #4390df !important;
+  color: #0072c6 !important;
 }
 .after-bg-lightBlue:after {
-  background: #4390df !important;
+  background: #0072c6 !important;
 }
 .after-fg-lightBlue:after {
-  color: #4390df !important;
+  color: #0072c6 !important;
 }
 .bg-hover-lightBlue:hover {
-  background: #4390df !important;
+  background: #0072c6 !important;
 }
 .bg-active-lightBlue:active {
-  background: #4390df !important;
+  background: #0072c6 !important;
 }
 .bg-focus-lightBlue:focus {
-  background: #4390df !important;
+  background: #0072c6 !important;
 }
 .fg-hover-lightBlue:hover {
-  color: #4390df !important;
+  color: #0072c6 !important;
 }
 .fg-active-lightBlue:active {
-  color: #4390df !important;
+  color: #0072c6 !important;
 }
 .fg-focus-lightBlue:focus {
-  color: #4390df !important;
+  color: #0072c6 !important;
 }
 .fg-lighterBlue {
   color: #00ccff !important;
@@ -3210,12 +3210,12 @@
   opacity: .2;
 }
 .element-selected {
-  border: 4px #4390df solid;
+  border: 4px #0072c6 solid;
 }
 .element-selected:after {
   position: absolute;
   display: block;
-  border-top: 28px solid #4390df;
+  border-top: 28px solid #0072c6;
   border-left: 28px solid transparent;
   right: 0;
   content: "";
