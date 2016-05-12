@@ -4,8 +4,41 @@ include_once("./udf/udf.php");
 if(strlen(trim($_SESSION['usertype']))<1 ){
     siteRedirectWithAlert("You Much Login first!","login.php");
 }
-$usertype = $_SESSION['usertype'];
-$fname  = $_SESSION['fname'];
+$usertype = strtolower($_SESSION['usertype']);
+$fname  = strtoupper($_SESSION['fname']);
+
+$displaymenu = "<li><a href='#'>Profile</a></li> ";
+if($usertype=='admin') {
+    $displaymenu .= "                   
+                <li>
+                    <a href='#' class='dropdown-toggle'>CIA Management</a>
+                    <ul class='d-menu' data-role='dropdown'>
+                        <li><a href='#'>User Accounts</a></li>
+                        <li class='divider'></li>
+                        <li><a href='#'>Question Bank</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href='#' class='dropdown-toggle'>Report Management</a>
+                    <ul class='d-menu' data-role='dropdown'>
+                        <li><a href='#'>User Activity Logs</a></li>
+                        <li class='divider'></li>
+                        <li><a href='#'>Exam Results</a></li>
+                    </ul>
+                </li>";
+}
+if($usertype=='teacher') {
+    $displaymenu .= "
+                <li><a href='#'>Manage Study Materials</a></li>    
+                <li><a href='#'>View Students Performance Report</a></li>";    
+}
+if($usertype=='student') {
+    $displaymenu .= "
+                <li><a href='#'>Review/Download Materials</a></li>    
+                <li><a href='#'>Take Exam / Quiz</a></li>";    
+}
+$displaymenu .= "<li><a href='#'>Help, Info and Support</a></li>
+                 <li><a href='logout.php'>LogOFF</a></li>";
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,22 +89,16 @@ $fname  = $_SESSION['fname'];
     </style>
 </head>
 <body class="bg-white">
-<div class="app-bar fixed-top darcula" data-role="appbar">
+    <div class="app-bar fixed-top darcula" data-role="appbar">
         <a class="app-bar-element branding">CIA</a>
         <span class="app-bar-divider"></span>
         <ul class="app-bar-menu">
-            <li><a href="">Home</a></li>
-            <li>
-                <a href="" class="dropdown-toggle">Create a session</a>
-                <ul class="d-menu" data-role="dropdown">
-                    <li><a href="">Test Session</a></li>
-                    <li class="divider"></li>
-                    <li><a href="">Study Session</a></li>
-                </ul>
-            </li>
-            <li><a href="">Performance</a></li>
-            <li><a href="">Test Prep Tools</a></li>
-            <li><a href="">Help, Info and Support</a></li>
+            <li><a href="#">Home</a></li>
+
+<!-- start of dynamic menu -->
+    <?PHP echo $displaymenu; ?>
+<!-- end of dynamic menu -->
+ 
         </ul>
 
         <div class="app-bar-element place-right">

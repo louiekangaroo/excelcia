@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2016 at 07:12 AM
+-- Generation Time: May 12, 2016 at 02:56 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -224,7 +224,11 @@ CREATE TABLE `userlogs` (
 INSERT INTO `userlogs` (`id`, `loguser`, `logdate`, `logdesc`) VALUES
 (1, 'alan/Dean, Alan', '2016-05-11 13:06:41', 'Good Login'),
 (2, 'alan/Dean, Alan', '2016-05-11 13:06:47', 'Good Login'),
-(3, 'alan/Dean, Alan', '2016-05-11 13:10:45', 'Good Login');
+(3, 'alan/Dean, Alan', '2016-05-11 13:10:45', 'Good Login'),
+(4, 'alan/Dean, Alan', '2016-05-12 07:00:19', 'Good Login'),
+(5, 'alan/Dean, Alan', '2016-05-12 20:23:49', 'Good Login'),
+(6, 'alan/Dean, Alan', '2016-05-12 20:40:13', 'Good Login'),
+(7, 'jeff/Aviso, Jef', '2016-05-12 20:55:58', 'Good Login');
 
 --
 -- Indexes for dumped tables
@@ -299,7 +303,7 @@ ALTER TABLE `studyunits`
 -- AUTO_INCREMENT for table `userlogs`
 --
 ALTER TABLE `userlogs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
