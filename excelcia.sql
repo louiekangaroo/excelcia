@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2016 at 02:56 PM
+-- Generation Time: May 12, 2016 at 07:59 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.5
 
@@ -24,21 +24,21 @@ DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`pela`@`%` PROCEDURE `getLogin` (IN `username` VARCHAR(200), IN `pswrd` VARCHAR(200))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getLogin` (IN `username` VARCHAR(200), IN `pswrd` VARCHAR(200))  BEGIN
 select * from personalinfo where username = lcase(username) and password = lcase(pswrd);
     END$$
 
-CREATE DEFINER=`pela`@`%` PROCEDURE `getReviewtopic` ()  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getReviewtopic` ()  BEGIN
 select id,topicname,description from reviewtopic;
     END$$
 
-CREATE DEFINER=`pela`@`%` PROCEDURE `getStudyunits` (IN `rid` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getStudyunits` (IN `rid` INT)  BEGIN
 select id,reviewid,studyname,description,isparent,parentid from studyunits where reviewid = rid;
     END$$
 
-CREATE DEFINER=`pela`@`%` PROCEDURE `getSubStudyunits` (IN `pid` INT)  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getSubStudyunits` (IN `pid` INT(1))  BEGIN
 select id,reviewid,studyname,description,isparent,parentid from studyunits where parentid = pid;
-    END$$
+END$$
 
 DELIMITER ;
 
@@ -50,15 +50,22 @@ DELIMITER ;
 
 CREATE TABLE `examquestion` (
   `id` int(11) NOT NULL,
-  `studyid` int(11) NOT NULL,
-  `reviewid` int(11) NOT NULL,
-  `question` int(11) NOT NULL,
-  `answer` int(11) NOT NULL,
-  `level` varchar(20) NOT NULL,
-  `a` int(11) NOT NULL,
-  `b` int(11) NOT NULL,
-  `c` int(11) NOT NULL,
-  `d` int(11) NOT NULL
+  `topicid` int(11) NOT NULL,
+  `subjid` int(11) NOT NULL,
+  `level` varchar(11) NOT NULL,
+  `question` varchar(1000) NOT NULL,
+  `a` varchar(500) NOT NULL,
+  `b` varchar(500) NOT NULL,
+  `c` varchar(500) NOT NULL,
+  `d` varchar(500) NOT NULL,
+  `a_rational` varchar(500) NOT NULL,
+  `b_rational` varchar(500) NOT NULL,
+  `c_rational` varchar(500) NOT NULL,
+  `d_rational` varchar(500) NOT NULL,
+  `correct_ans` varchar(10) NOT NULL,
+  `minutes` varchar(20) NOT NULL,
+  `point` int(2) NOT NULL,
+  `type` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
