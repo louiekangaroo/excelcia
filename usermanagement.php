@@ -40,7 +40,7 @@
    $displaymenu .= "<li><a href='#'>Help, Info and Support</a></li>";
    ?>
 <!DOCTYPE html>
-<html>
+<html ng-app="myUser">
    <head>
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,6 +59,8 @@
 
       <!--JAVASCRIPTS------------------------------------------>
       <script src="build/js/jquery-1.12.3.js"></script>
+      <script src="js/angular.min.js"></script>
+      <script src="js/usermanagement.js"></script>
       <script src="build/js/metro.js"></script>
       <style>
          html, body {
@@ -86,7 +88,7 @@
          }
       </style>
    </head>
-   <body class="bg-white">
+   <body class="bg-white"  ng-controller="myUserCtrl">
       <div class="app-bar fixed-top darcula" data-role="appbar">
          <a class="app-bar-element branding">CIA</a>
          <span class="app-bar-divider"></span>
@@ -107,50 +109,44 @@
             </div>
          </div>
       </div>
-      <div class="container-fluid">
+
+      <div class="container-fluid" ng-model="users">
       <div class="main-content clear-float">
-          <div class="tile-area no-padding">
-          <h1 class="welcome-to-title">Welcome to <b>CIA</b></h1>
-            <div class="tile-group no-margin no-padding" style="width: 100%">
-                 <div class="tile-large ol-transparent" data-role="tile">
-                        <div class="tile-content">
-                            <div class="carousel" data-role="carousel" data-height="100%" data-width="100%" data-controls="false">
-                                <div class="slide">
-                                    <img src="images/1.jpg" data-role="fitImage" data-format="fill">
-                                </div>
-                                <div class="slide">
-                                    <img src="images/2.jpg"  data-role="fitImage" data-format="fill">
-                                </div>
-                                <div class="slide">
-                                    <img src="images/3.jpg"  data-role="fitImage" data-format="fill">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                     <div class="tile-big tile-wide-y bg-white" data-role="tile">
-                        <div class="tile-content">
-                            <div class="panel" style="height: 100%">
-                                <div class="heading bg-lightBlue fg-white"><span class="title text-light">news</span></div>
-                                <div class="content fg-dark clear-float" style="height: 100%">
-                                    <img src="images/4.jpg" class="place-left margin10" style="height: 130px">
-                                    <h2 class="text-light">CIA - Internal Auditing Youth Summit</h2>
-                                    <p style="padding:10px;">May is considered as the International Internal Audit Awareness Month. The Institute of Internal Auditors FEU Student Chapter and the National Federation of Junior Philippine Institute of Accountants - National Capital Region joins this celebration through the Internal Auditing Youth Summit!
-                                    <br>
-                                    <br>
-                                    Happy International Internal Audit Awareness Month!!
-                                    <br>
-                                    ‪#‎IIAAwarenessMonth‬ 
-                                    ‪#‎DiscoverInternalAuditing‬
-                                    ‪#‎IAYS2016‬</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      <h1 class="welcome-to-title">User Management</b></h1>
+      <hr class="thin bg-grayLighter">
+      <button class="button primary btnNew"><span class="mif-plus"></span> New</button>
+      <button class="button btnEdit"><span class="mif-pencil"></span> Edit</button>
+      <button class="button primary btnDelete"><span class="mif-cross"></span> Delete</button>
+      <hr class="thin bg-grayLighter">
+          <table class="table striped border bordered">
+            <th></th>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Contact No.</th>
+            <th>Email Add</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>User Type</th>
+            <th>Is Active</th>
+            <tbody>
+            <tr ng-repeat="x in users">
+            <td id="{{ x.id }}"><input type="checkbox"></td>
+            <td> {{ x.fname }} </td>
+            <td> {{ x.mname }} </td>
+            <td> {{ x.lname }} </td>
+            <td> {{ x.address }} </td>
+            <td> {{ x.contactno }} </td>
+            <td> {{ x.emailadd }} </td>
+            <td> {{ x.username }} </td>
+            <td> {{ x.password }} </td>
+            <td> {{ x.usertype }} </td>
+            <td><input type="checkbox" disabled="true" checked="{{ x.status }}"></td>
+            </tr>
+             </tbody>
+          </table>
       </div>
-            </div>
-
-          </div>
-
       </div>
    </body>
 </html>

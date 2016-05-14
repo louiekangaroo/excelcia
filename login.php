@@ -95,15 +95,13 @@ if(isset($_POST['user_login']) && isset($_POST['user_password']) ){
             <hr class="thin"/>
             <br />
             <div class="input-control text full-size" data-role="input">
-                <label for="user_login">Username:</label>
-                <input type="text" name="user_login" id="user_login" required="">
+                <input type="text" name="user_login" id="user_login" placeholder="Username" required="">
                 <button class="button helper-button clear"><span class="mif-cross"></span></button>
             </div>
             <br />
             <br />
             <div class="input-control password full-size" data-role="input">
-                <label for="user_password">Password:</label>
-                <input type="password" name="user_password" id="user_password" required="">
+                <input type="password" name="user_password" id="user_password" placeholder="Password" required="">
                 <button class="button helper-button reveal"><span class="mif-looks"></span></button>
             </div>
             <br />
