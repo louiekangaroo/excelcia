@@ -72,20 +72,14 @@ function ChkUserLogin($vUserID,$vUserPassword){
 	$_SESSION['usertype']	='';
 
 
-	//session vars for OSCA STAFF / admin users 
-	
-	//end of session vars for users
-	
-	//session vars for seniors
-
-	//end of session vars for senior
-	
 	$_SESSION['wholename'] 			= '';
 	//<meta http-equiv='refresh' content='10; URL=main.html'>
 
 	$UserQuery = 'NO QUERY';
 	
 	$UserQuery = "SELECT * FROM personalinfo t where username='$vuid' and password = '$vupwd' and status='1';";
+
+	//die($UserQuery);
 	
 	$UserResult = mysqli_query($con,$UserQuery);
 	$UserNum = mysqli_num_rows($UserResult);
@@ -396,7 +390,7 @@ function SaveLog($fullname,$logdesc){
 	$connection1 	= mysqli_connect("$host" , "$username" , "$password", $db_name) 
 			  or die ("Can't connect to MySQL <meta http-equiv='refresh' content='10; URL=index.php?mnu=11111'>");
 	$tb='userlogs';
-    $sqlcmd = "insert into " . $tb . " (loguser, logdate, logdesc) values ('". $fullname ."',now(),'" .$logdesc."');";
+    $sqlcmd = "insert into " . $tb . " (loguserid, logdate, logdesc) values ('". $fullname ."',now(),'" .$logdesc."');";
 	
     $results = mysqli_query($connection1, $sqlcmd) or die ("Could not execute query : $sqlcmd . " . mysqli_error());
     mysqli_close($connection1);	
@@ -425,10 +419,10 @@ function DisplayAlert($alert){
 
 function ExecuteNoneQuery($vSQLcmd){
 	$feedback = false;
-	include("connect.php");
-	$results = mysqli_query($connection, $vSQLcmd) or die ("Could not execute query : $vSQLcmd . " . mysqli_error());
+	include("./webpages/connection.php");
+	$results = mysqli_query($con, $vSQLcmd) or die ("Could not execute query : $vSQLcmd . " . mysqli_error());
     if ($results){
-		mysqli_close($connection);
+		mysqli_close($con);
 		//DisplayAlert("Database update success...");
 		$feedback = true;
     }else{
@@ -469,19 +463,19 @@ function ChkCutOff($periodcond){
 	return $good;
 }
 
+*/
+
 function getfieldvalue($table, $fieldname, $condition){
 	$retvalue = "";
-	include('connect.php');
+	include('./pages/connection.php');
 	$UserQuery = "SELECT $fieldname FROM $table $condition;";
-
-	//debuging tool
-    //if($condition=='1') die($UserQuery);
-	//die($UserQuery);
 	
-	$UserResult = mysqli_query($connection,$UserQuery);
+	//die($UserQuery);
+
+	$UserResult = mysqli_query($con,$UserQuery);
 	$UserNum = mysqli_num_rows($UserResult);
 	
-	mysqli_close($connection);
+	mysqli_close($con);
 	if(mysqli_num_rows($UserResult)){
 		$i=0;
 		while($row = mysqli_fetch_array($UserResult)){
@@ -491,6 +485,7 @@ function getfieldvalue($table, $fieldname, $condition){
 	return $retvalue;
 }
 
+/*
 function ChkBackSchedule(){
 	$response = false;
 	$_SESSION['bkup'] 			= getfieldvalue("autoschedule","bkup","");			//the bkup day schedule
